@@ -1,7 +1,6 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
-
 require ::File.expand_path('../config/environment', __FILE__)
 
 # Include all of ActiveSupport's core class extensions, e.g., String#camelize
@@ -110,6 +109,7 @@ namespace :db do
       ENV["SCOPE"].blank? || (ENV["SCOPE"] == migration.scope)
     require APP_ROOT.join('db', 'seeds.rb')
   end
+end
 
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
   task :migrate do
