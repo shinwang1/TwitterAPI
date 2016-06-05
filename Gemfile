@@ -16,6 +16,7 @@ gem 'shotgun'
 gem 'pry'
 
 gem 'twitter'
+gem 'dotenv'
 
 group :test do
   gem 'shoulda-matchers'

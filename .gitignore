@@ -36,6 +36,6 @@
 ehthumbs.db
 Thumbs.db
 
-
-ignoredDirectory/*
-config/initializers/twitter.rb
+# API Key #
+###########
+.env
