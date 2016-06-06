@@ -4,19 +4,33 @@ get '/sessions/new' do
 end
 
 post '/sessions/new' do
-  @user = User.find_by(username: params[:username])
-  password = params[:password]
-
-  if @user && @user.authenticate(password)
-    session[:id] = @user.id
-    redirect '/'
+  user = User.new(username: params[:user][:username], password: params[:user][:password])
+  if user
+    user.save
+    session[:id] = user.id
+    redirect '/tweet/new'
   else
-    #error handling goes here, via if logic on homepage
     redirect '/sessions/new'
   end
 end
 
-get '/sessions/delete' do
+get '/sessions/login' do
+  erb :"sessions/login"
+end
+
+post '/sessions/login' do
+    user = User.find_by(username: params[:user][:username])
+    
+    if user && user.authenticate(params[:user][:password])
+      session[:id] = user.id
+      redirect '/tweet/new'
+    else
+      @error = "Your password or email was incorrect"
+      redirect '/sessions/login'
+    end
+end
+
+get '/logout' do
   session.clear
   redirect '/'
 end
