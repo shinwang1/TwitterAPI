@@ -8,7 +8,7 @@ post '/sessions/new' do
   if user
     user.save
     session[:id] = user.id
-    redirect '/landing'
+    redirect '/tweet/new'
   else
     redirect '/sessions/new'
   end
@@ -23,7 +23,7 @@ post '/sessions/login' do
     
     if user && user.authenticate(params[:user][:password])
       session[:id] = user.id
-      redirect '/landing'
+      redirect '/tweet/new'
     else
       @error = "Your password or email was incorrect"
       redirect '/sessions/login'
