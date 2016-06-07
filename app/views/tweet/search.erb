@@ -1,0 +1,10 @@
+<form action="/tweet/search" method="GET">
+  <input type="text" name="tweet">
+  <input type="submit" value="search">
+</form>
+
+<ul>
+  <% @display_tweets.each do |t| %>
+  <h2><li><%= t %></li></h2>
+  <% end %>
+</ul>
