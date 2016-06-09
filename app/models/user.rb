@@ -1,8 +1,7 @@
-require 'bcrypt'
-
 class User < ActiveRecord::Base
   include BCrypt
 
+  has_many :boards
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
 
@@ -16,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def authenticate(password)
-    self.password = password
+    self.password == password
   end
 
 end
