@@ -6,11 +6,21 @@ get '/tweet/new' do
   end
 end
 
-post '/tweet' do
+# post '/tweet' do
+#   if current_user
+#     tweet(params[:tweet])
+#     redirect '/tweet/new'
+#   else
+#     redirect '/tweet/new'
+#   end
+# end
+
+get '/tweet/search' do
   if current_user
-    tweet(params[:tweet])
-    redirect '/tweet/new'
+    # tweet(params[:tweet])
+    @display_tweets = tweet_search(params[:tweet])
+    erb :'/tweet/search'
   else
-    redirect '/tweet/new'
+    erb :'/tweet/new'
   end
 end

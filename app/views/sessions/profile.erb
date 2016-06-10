@@ -1,0 +1,43 @@
+<a href="/boards/new">+ Make a Board</a>
+
+<!-- Partial to fill in boards -->
+
+<h3>User Boards</h3><br>
+
+<ol>
+
+  <% @boards.each do |board| %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <!-- <img src="images/sample-1.jpg"> -->
+            <span class="card-title"><a href="/boards/<%= board.id %>">Board: <%= board.name %></a></span>
+
+<!--             <span class="card-title">Board: <%= board.name %></span>
+ -->          </div>
+          <div class="card-content">
+            <p>Keywords: <%= board.search_keyword %></p>
+            <p>Channels:
+            <% board.channels.each do |channel|%>
+            <%= channel.twitter_handle %>
+            <% end %>
+            </p>
+            </div>
+            <div class="card-action">
+              <a href="/boards/<%= board.id %>/channels/new">Add Channel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</ol>
+
+  
+
+  
+
+  
+
+
+
