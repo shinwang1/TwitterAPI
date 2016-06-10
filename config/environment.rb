@@ -11,6 +11,7 @@ require 'rubygems'
 require 'twitter'
 require 'dotenv'
 Dotenv.load
+require 'tweetstream'
 
 require 'uri'
 require 'pathname'
