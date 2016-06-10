@@ -5,3 +5,8 @@
   border: 1px dotted black;
 }
 
+.img_responsive {
+  width: 100%;
+  height: auto;
+}
+
