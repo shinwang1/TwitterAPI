@@ -35,22 +35,24 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if current_user %>
-          <li>Hi <a href="<%= current_user.username %>"><%= current_user.username %></a></li>
-          <li><a href="/logout">Logout</a></li>
-        <% else %>
-          <li><a href="/sessions/login">Log in</a></li>
-          <li><a href="/sessions/new">Register</a></li>
-        <% end %>
-      </ul>
+      <div class="logo-link">
+        <a href="#" class="brand-logo">Logo</a>
+      
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if current_user %>
+              <li>Hi <a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
+              <li><a href="/logout">Logout</a></li>
+            <% else %>
+              <li><a href="/sessions/login">Log in</a></li>
+              <li><a href="/sessions/new">Register</a></li>
+            <% end %>
+          </ul>
+      </div>
     </div>
   </nav>
 
+  <%= yield %>
 
-
-<%= yield %>
 
 </body>
 </html>
