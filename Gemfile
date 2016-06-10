@@ -14,7 +14,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'pry'
-
+gem 'tweetstream'
 gem 'twitter'
 gem 'dotenv'
 
