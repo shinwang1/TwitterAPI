@@ -21,6 +21,14 @@ post '/boards/:board_id/channels' do
   redirect :"/users/#{current_user.id}"
 end
 
+delete '/boards/:board_id' do 
+  @board = Board.find(params[:board_id])
+  @channels = @board.channels
+  @channels.destroy
+  @board.destroy
+  redirect :"/users/#{current_user.id}"
+end
+
 get '/boards/:id' do
   @board = Board.find(params[:id])
   channel = @board.channels[0].twitter_handle
@@ -28,3 +36,5 @@ get '/boards/:id' do
 
   erb :'/boards/show'
 end
+
+
