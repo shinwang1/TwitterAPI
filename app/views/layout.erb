@@ -38,7 +38,7 @@
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if current_user %>
-          <li>Hi <a href="<%= current_user.username %>">#</a></li>
+          <li>Hi <a href="<%= current_user.username %>"><%= current_user.username %></a></li>
           <li><a href="/logout">Logout</a></li>
         <% else %>
           <li><a href="/sessions/login">Log in</a></li>
