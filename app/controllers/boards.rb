@@ -21,8 +21,10 @@ post '/boards/:board_id/channels' do
   redirect :"/users/#{current_user.id}"
 end
 
-get '/boards/:id' do 
+get '/boards/:id' do
   @board = Board.find(params[:id])
-  # @cards = @board.cards
+  channel = @board.channels[0].twitter_handle
+  @user_tweets = get_timeline(channel).take(20)
+
   erb :'/boards/show'
 end

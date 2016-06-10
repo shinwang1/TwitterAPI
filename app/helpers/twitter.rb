@@ -32,10 +32,6 @@ end
 
 def get_timeline(username)
   twitter_auth
-  data = @client.user_timeline("username")
-  p data
-end
-
 # def stream_tweet(user_input)
 #   topics = user_input.split(",")
 #   @client.filter(track: topics.join(",")) do |object|
@@ -48,3 +44,6 @@ end
 #     puts status.text
 #   end
 # end
+  @client.user_timeline(username)
+end
+
