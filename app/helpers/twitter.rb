@@ -25,6 +25,5 @@ end
 
 def get_timeline(username)
   twitter_auth
-  data @client.user_timeline("username")
-  p data
+  @client.user_timeline(username)
 end
