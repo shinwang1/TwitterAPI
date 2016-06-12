@@ -1,14 +1,15 @@
-<a href="/boards/new">+ Make a Board</a>
+<div class="body">
+<h4><a href="/boards/new">+ Make a Board</a></h4>
 
 <!-- Partial to fill in boards -->
 
-<h3>User Boards</h3><br>
+<h4>User Boards</h4><br>
 
 <ol>
 
   <% @boards.each do |board| %>
     <div class="row">
-      <div class="col s12 m3">
+      <div class="col s12 m5">
         <div class="card blue-grey darken-1">
           <div class="card-content white-text">
             <!-- <img src="images/sample-1.jpg"> -->
@@ -16,6 +17,7 @@
           </div>
           <div class="card-content">
             <p>Keywords: <%= board.search_keyword %></p>
+            <p>Created: <%= board.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%A, %B %d, %Y at %l%p") %></p>
             <p>Channels:
             <% board.channels.each do |channel|%>
             <%= channel.twitter_handle %>
@@ -24,12 +26,14 @@
             </div>
             <div class="card-action">
               <a href="/boards/<%= board.id %>/channels/new">Add Channel</a>
+              <a href="/boards/<%= board.id %>">Delete Board</a>
             </div>
           </div>
         </div>
       </div>
   <% end %>
 </ol>
+<div>
 
   
 

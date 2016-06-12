@@ -1,3 +1,6 @@
+.body {
+  margin: 40px 40px 40px 40px;
+}
 .container {
   margin: 20px auto;
   width: 600px;
@@ -10,6 +13,13 @@
   height: auto;
 }
 
+.nav-wrapper {
+  background-color: #26c6da; 
+}
+
+.logo-link {
+  margin-left: 40px;
+}
 /*.card {
   display: inline-block;
   overflow: visible;

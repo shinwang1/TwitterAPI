@@ -1,10 +1,7 @@
+<!-- <div class="body"> -->
+<!--
 
-<% @filtered_tweets = [] %>
-<%@user_tweets.each do |tweet|%>
-    <%if tweet.full_text.include?(@board.search_keyword)%>
-      <%@filtered_tweets << tweet%>
-    <%end%>
-  <%end%>
-<%@filtered_tweets.each do |tweet| %>
-  <%= tweet.full_text%><br>
-  <% end %>
+    -->
+<!-- </div> -->
+
+<a class="twitter-timeline" href="https://twitter.com/<%= @user_tweets %>">Tweets by UAbasketball</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

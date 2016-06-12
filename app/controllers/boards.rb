@@ -21,10 +21,23 @@ post '/boards/:board_id/channels' do
   redirect :"/users/#{current_user.id}"
 end
 
+delete '/boards/:board_id' do 
+  @board = Board.find(params[:board_id])
+  @channels = @board.channels
+  @channels.destroy
+  @board.destroy
+  redirect :"/users/#{current_user.id}"
+end
+
 get '/boards/:id' do
   @board = Board.find(params[:id])
-  channel = @board.channels[0].twitter_handle
-  @user_tweets = get_timeline(channel).take(20)
+  # channel = @board.channels[0].twitter_handle
+  # @user_tweets = get_timeline(channel).take(20)
+  # above code was used to get tweets, worked on by Traci
 
+  channel = @board.channels[0].twitter_handle
+  @user_tweets = channel
   erb :'/boards/show'
 end
+
+
